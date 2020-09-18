@@ -10,7 +10,7 @@
                 <Label Text="Test Drive" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
             </StackLayout>
         </Frame>
-        
+
         <StackLayout Padding="30,10,30,10">
             <Label Text="Selecione o veículo de sua preferência :)" FontSize="Title"/>
             <Label Text="Sandero" VerticalOptions="Center"></Label>
@@ -36,12 +36,6 @@
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-        </StackLayout>
-        <StackLayout>
-            <Label Text="Inglês"/>
-            <Label Text="Português"/>
-            <Label Text="Espanhol"/>
-            <Label Text="Italiano"/>
         </StackLayout>
 
     </StackLayout>   
