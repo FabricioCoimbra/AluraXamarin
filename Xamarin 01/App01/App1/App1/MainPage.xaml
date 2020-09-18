@@ -9,85 +9,21 @@
                 <Label Text="Veículos Renault!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
                 <Label Text="Test Drive" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
             </StackLayout>
-        </Frame>           
-        
+        </Frame>
+
         <Label Text="Selecione o veículo de sua preferência :)" FontSize="Title" Padding="30,10,30,10"/>
-        <Grid Padding="30,10,30,10">
-
-            <Label Grid.Column="0" Grid.Row="0" Text="Veículo" FontAttributes="Bold" VerticalOptions="Center"></Label>
-            <Label Grid.Column="1" Grid.Row="0" Text="Preço" FontAttributes="Bold" VerticalOptions="Center"></Label>
-            
-            <Label Grid.Column="0" Grid.Row="1" Text="Sandero" VerticalOptions="Center"></Label>
-            <Label Grid.Column="1" Grid.Row="1" Text="R$ 54.290" VerticalOptions="Center"></Label>
-            
-            <Label Grid.Column="0" Grid.Row="2" Text="Kwid" VerticalOptions="Center"></Label>
-            <Label Grid.Column="1" Grid.Row="2" Text="R$ 37.490" VerticalOptions="Center"></Label>
-            
-            <Label Grid.Column="0" Grid.Row="3" Text="Stepway :)" VerticalOptions="Center"></Label>
-            <Label Grid.Column="1" Grid.Row="3" Text="R$ 70.090" VerticalOptions="Center"></Label>
-            
-            <Label Grid.Column="0" Grid.Row="4" Text="Sandero RS" VerticalOptions="Center"></Label>
-            <Label Grid.Column="1" Grid.Row="4" Text="R$ 59.390" VerticalOptions="Center"></Label>
-            
-            <Label Grid.Column="0" Grid.Row="5" Text="Sandero Vibe" VerticalOptions="Center"></Label>
-            <Label Grid.Column="1" Grid.Row="5" Text="R$ 59.390" VerticalOptions="Center"></Label>
-            
-            <Label Grid.Column="0" Grid.Row="6" Text="Sandero GT Line" VerticalOptions="Center"></Label>
-            <Label Grid.Column="1" Grid.Row="6" Text="R$ 59.390" VerticalOptions="Center"></Label>
-            
-            <Label Grid.Column="0" Grid.Row="7" Text="Logan" VerticalOptions="Center"></Label>
-            <Label Grid.Column="1" Grid.Row="7" Text="R$ 58.490" VerticalOptions="Center"></Label>
-            
-            <Label Grid.Column="0" Grid.Row="8" Text="Captur" VerticalOptions="Center"></Label>
-            <Label Grid.Column="1" Grid.Row="8" Text="R$ 97.990" VerticalOptions="Center"></Label>
-            
-            <Label Grid.Column="0" Grid.Row="9" Text="Duster" VerticalOptions="Center"></Label>
-            <Label Grid.Column="1" Grid.Row="9" Text="R$ 71.790" VerticalOptions="Center"></Label>
-            
-            <Label Grid.Column="0" Grid.Row="10" Text="Oroch" VerticalOptions="Center"></Label>
-            <Label Grid.Column="1" Grid.Row="10" Text="R$ 69.590" VerticalOptions="Center"></Label>
-            
-            <Label Grid.Column="0" Grid.Row="11" Text="Master" VerticalOptions="Center"></Label>
-            <Label Grid.Column="1" Grid.Row="11" Text="R$ 144.490" VerticalOptions="Center"></Label>
-
-         
-        </Grid>
-        <Label Text="Dados da eleição dos EUA de 2016" FontSize="Title" Padding="30,10,30,10"/>
-
-        <Grid Padding="30,10,30,10" VerticalOptions="Start" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="70"></ColumnDefinition>
-                <ColumnDefinition Width="10"></ColumnDefinition>
-                <ColumnDefinition Width="70"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition> 
-                <ColumnDefinition Width="70"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Text="Trump"/>
-            <Label Grid.Row="0" Grid.Column="1" Text="/"/>
-            <Label Grid.Row="0" Grid.Column="2" Text="Pence"/>
-            <Label Grid.Row="0" Grid.Column="3" Text="62.829.410"/>
-            <Label Grid.Row="0" Grid.Column="4" Text="46,10%"/>
-            
-            <Label Grid.Row="1" Text="Clinton"/>
-            <Label Grid.Row="1" Grid.Column="1" Text="/"/>
-            <Label Grid.Row="1" Grid.Column="2" Text="Kaine"/>
-            <Label Grid.Row="1" Grid.Column="3" Text="65.483.780"/>
-            <Label Grid.Row="1" Grid.Column="4" Text="48,05%"/>
-            
-            <Label Grid.Row="2" Text="Johnson"/>
-            <Label Grid.Row="2" Grid.Column="1" Text="/"/>
-            <Label Grid.Row="2" Grid.Column="2" Text="Weld"/>
-            <Label Grid.Row="2" Grid.Column="3" Text="4.476.220"/>
-            <Label Grid.Row="2" Grid.Column="4" Text="3,28%"/>
-            
-            
-            <Label Grid.Row="3" Text="Stein"/>
-            <Label Grid.Row="3" Grid.Column="1" Text="/"/>
-            <Label Grid.Row="3" Grid.Column="2" Text="Baraka"/>
-            <Label Grid.Row="3" Grid.Column="3" Text="1.449.726"/>
-            <Label Grid.Row="3" Grid.Column="4" Text="1,06%"/>
-        </Grid>
-
+        
+        <ListView x:Name="ListaVeiculos" ItemsSource="{Binding Veiculos}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Label Text="{Binding Nome}"></Label>    
+                        </ViewCell.View>                        
+                    </ViewCell> 
+                </DataTemplate>
+            </ListView.ItemTemplate>            
+        </ListView>
     </StackLayout>   
 
 </ContentPage>
