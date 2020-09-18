@@ -38,39 +38,11 @@
             </Label>
         </StackLayout>
         <StackLayout>
-            <Grid>
-                <Label Text="Inglês"/>
-                <Label Text="Português"/>
-                <Label Text="Espanhol"/>
-                <Label Text="Italiano"/>
-            </Grid>
-        </StackLayout>
-
-        <StackLayout>
-            <Label Text="Inglês"/>
-        </StackLayout>
-        <StackLayout>
-            <Label Text="Português"/>
-        </StackLayout>
-        <StackLayout>
-            <Label Text="Espanhol"/>
-        </StackLayout>
-        <StackLayout>
-            <Label Text="Italiano"/>
-        </StackLayout>
-
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
             <Label Text="Inglês"/>
             <Label Text="Português"/>
             <Label Text="Espanhol"/>
             <Label Text="Italiano"/>
-        </Grid>
+        </StackLayout>
 
     </StackLayout>   
 
