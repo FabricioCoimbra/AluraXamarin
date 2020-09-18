@@ -10,33 +10,57 @@
                 <Label Text="Test Drive" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
             </StackLayout>
         </Frame>
+        <Label Grid.Column="0" Text="Selecione o veículo de sua preferência :)" FontSize="Title" Padding="30,10,30,10"/>
+        <Grid Padding="30,10,30,10">
 
-        <StackLayout Padding="30,10,30,10">
-            <Label Text="Selecione o veículo de sua preferência :)" FontSize="Title"/>
-            <Label Text="Sandero" VerticalOptions="Center"></Label>
-            <Label Text="Kwid" VerticalOptions="Center"></Label>
-            <Label Text="Stepway :)" VerticalOptions="Center"></Label>
-            <Label Text="Sandero RS" VerticalOptions="Center"></Label>
-            <Label Text="Sandero Vibe" VerticalOptions="Center"></Label>
-            <Label Text="Sandero GT Line" VerticalOptions="Center"></Label>
-            <Label Text="Logan" VerticalOptions="Center"></Label>
-            <Label Text="Captur" VerticalOptions="Center"></Label>
-            <Label Text="Duster" VerticalOptions="Center"></Label>
-            <Label Text="Oroch" VerticalOptions="Center"></Label>
-            <Label Text="Master" VerticalOptions="Center"></Label>
+            <Label Grid.Column="0" Grid.Row="0" Text="Veículo" FontAttributes="Bold" VerticalOptions="Center"></Label>
+            <Label Grid.Column="1" Grid.Row="0" Text="Preço" FontAttributes="Bold" VerticalOptions="Center"></Label>
+            
+            <Label Grid.Column="0" Grid.Row="1" Text="Sandero" VerticalOptions="Center"></Label>
+            <Label Grid.Column="1" Grid.Row="1" Text="R$ 54.290" VerticalOptions="Center"></Label>
+            
+            <Label Grid.Column="0" Grid.Row="2" Text="Kwid" VerticalOptions="Center"></Label>
+            <Label Grid.Column="1" Grid.Row="2" Text="R$ 37.490" VerticalOptions="Center"></Label>
+            
+            <Label Grid.Column="0" Grid.Row="3" Text="Stepway :)" VerticalOptions="Center"></Label>
+            <Label Grid.Column="1" Grid.Row="3" Text="R$ 70.090" VerticalOptions="Center"></Label>
+            
+            <Label Grid.Column="0" Grid.Row="4" Text="Sandero RS" VerticalOptions="Center"></Label>
+            <Label Grid.Column="1" Grid.Row="4" Text="R$ 59.390" VerticalOptions="Center"></Label>
+            
+            <Label Grid.Column="0" Grid.Row="5" Text="Sandero Vibe" VerticalOptions="Center"></Label>
+            <Label Grid.Column="1" Grid.Row="5" Text="R$ 59.390" VerticalOptions="Center"></Label>
+            
+            <Label Grid.Column="0" Grid.Row="6" Text="Sandero GT Line" VerticalOptions="Center"></Label>
+            <Label Grid.Column="1" Grid.Row="6" Text="R$ 59.390" VerticalOptions="Center"></Label>
+            
+            <Label Grid.Column="0" Grid.Row="7" Text="Logan" VerticalOptions="Center"></Label>
+            <Label Grid.Column="1" Grid.Row="7" Text="R$ 58.490" VerticalOptions="Center"></Label>
+            
+            <Label Grid.Column="0" Grid.Row="8" Text="Captur" VerticalOptions="Center"></Label>
+            <Label Grid.Column="1" Grid.Row="8" Text="R$ 97.990" VerticalOptions="Center"></Label>
+            
+            <Label Grid.Column="0" Grid.Row="9" Text="Duster" VerticalOptions="Center"></Label>
+            <Label Grid.Column="1" Grid.Row="9" Text="R$ 71.790" VerticalOptions="Center"></Label>
+            
+            <Label Grid.Column="0" Grid.Row="10" Text="Oroch" VerticalOptions="Center"></Label>
+            <Label Grid.Column="1" Grid.Row="10" Text="R$ 69.590" VerticalOptions="Center"></Label>
+            
+            <Label Grid.Column="0" Grid.Row="11" Text="Master" VerticalOptions="Center"></Label>
+            <Label Grid.Column="1" Grid.Row="11" Text="R$ 144.490" VerticalOptions="Center"></Label>
+        </Grid>
 
-            <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-            <Label FontSize="16" Padding="30,24,30,0">
-                <Label.FormattedText>
-                    <FormattedString>
-                        <FormattedString.Spans>
-                            <Span Text="Learn more at "/>
-                            <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                        </FormattedString.Spans>
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-        </StackLayout>
+        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
+        <Label FontSize="16" Padding="30,24,30,0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="Learn more at "/>
+                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
 
     </StackLayout>   
 
