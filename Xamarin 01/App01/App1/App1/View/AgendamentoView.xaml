@@ -4,9 +4,33 @@
              x:Class="App1.View.AgendamentoView">
     <ContentPage.Content>
         <StackLayout>
+            <TableView Intent="Form">
+                <TableRoot>
+                    <TableSection Title="Seus dados">
+                        <EntryCell Label="Nome:" Placeholder="Informe seu nome" Text="{Binding Nome}"></EntryCell>
+                        <EntryCell Label="Email:" Keyboard="Email" Placeholder="Informe seu email" Text="{Binding Email}"></EntryCell>
+                        <EntryCell Label="Telefone:" Keyboard="Telephone" Placeholder="Informe seu telefone" Text="{Binding Telefone}"></EntryCell>
+                    </TableSection>
+                    <TableSection Title="Agendamento">
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal"  Margin="15, 0">
+                                <Label Text="Data"></Label>
+                                <DatePicker Date="{Binding DataAgendamento}"></DatePicker>
+                            </StackLayout>                            
+                        </ViewCell>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal"  Margin="15, 0">
+                                <Label Text="Hora"></Label>
+                                <TimePicker Time="{Binding HoraAgendamento}"></TimePicker>
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
             <Label Text="Sou a página de agendamento"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <Button Text="Agendar" Margin="25" Clicked="Button_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
