@@ -25,12 +25,12 @@
             </Label.FormattedText>
         </Label>       
 
-        <ListView x:Name="ListaVeiculos" ItemsSource="{Binding Veiculos}">
+        <ListView x:Name="ListaVeiculos" ItemsSource="{Binding Veiculos}" ItemTapped="ListaVeiculos_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <StackLayout Orientation="Horizontal" Padding="30,10,30,10">
+                            <StackLayout Orientation="Horizontal" Padding="30,10,30,10" VerticalOptions="Center">
                                 <Label Text="{Binding Nome}"></Label>
                                 <Label Text="{Binding Preco}" HorizontalOptions="End"></Label>
                             </StackLayout>
