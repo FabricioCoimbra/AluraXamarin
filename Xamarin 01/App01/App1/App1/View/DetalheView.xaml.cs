@@ -12,11 +12,12 @@ namespace App1.View
         private const int CONTROLE_TRACAO = 1200;
         private const int ASSISTENTE_PARTIDA_RAMPA = 1500;
         private bool temFreioABS;
+        private bool temControleTracao;
+        private bool temAssistentePartida;
 
         public string TextoFreioABS { get => $"Freio ABS - R$ {FREIO_ABS}"; }
         public string TextoControleTracao { get => $"Controle de tração - R$ {CONTROLE_TRACAO}"; }
         public string TextoAssistentePartidaRampa { get => $"Assitente de partida em rampa - R$ {ASSISTENTE_PARTIDA_RAMPA}"; }
-        public string TextoTotal { get => $"Total = R$ {Veiculo.Preco + (TemFreioABS ? FREIO_ABS : 0)}"; }
         public bool TemFreioABS
         {
             get => temFreioABS;
@@ -29,6 +30,38 @@ namespace App1.View
                     DisplayAlert("Freio ABS", "Desligado", "OK");
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(TextoTotal));
+            }
+        }
+
+        public bool TemControleTracao
+        {
+            get => temControleTracao;
+            set
+            {
+                temControleTracao = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(TextoTotal));
+            }
+        }
+        public bool TemAssistentePartida
+        {
+            get => temAssistentePartida;
+            set
+            {
+                temAssistentePartida = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(TextoTotal));
+            }
+        }
+        public string TextoTotal
+        { 
+            get 
+            {
+                return string.Format("Total = R$ {0}", Veiculo.Preco 
+                    + (TemFreioABS ? FREIO_ABS : 0)
+                    + (TemControleTracao ? CONTROLE_TRACAO : 0)
+                    + (TemAssistentePartida ? ASSISTENTE_PARTIDA_RAMPA : 0)
+                    );
             }
         }
         public Veiculo Veiculo { get; set; }
