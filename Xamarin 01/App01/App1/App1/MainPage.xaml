@@ -18,7 +18,11 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <Label Text="{Binding Nome}"></Label>    
+                            <StackLayout Orientation="Horizontal" Padding="30,10,30,10">
+                                <Label Text="{Binding Nome}"></Label>
+                                <Label Text="{Binding Preco}"></Label>
+                            </StackLayout>
+                            
                         </ViewCell.View>                        
                     </ViewCell> 
                 </DataTemplate>
