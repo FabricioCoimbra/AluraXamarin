@@ -13,10 +13,10 @@ namespace App1.View
         private const int ASSISTENTE_PARTIDA_RAMPA = 1500;
         private bool temFreioABS;
 
-        public String TextoFreioABS { get => $"Freio ABS - R$ {FREIO_ABS}"; }
-        public String TextoControleTracao { get => $"Controle de tração - R$ {CONTROLE_TRACAO}"; }
-        public String TextoAssistentePartidaRampa { get => $"Assitente de partida em rampa - R$ {ASSISTENTE_PARTIDA_RAMPA}"; }
-        public String TextoTotal { get => $"Total = R$ {Veiculo.Preco}"; }
+        public string TextoFreioABS { get => $"Freio ABS - R$ {FREIO_ABS}"; }
+        public string TextoControleTracao { get => $"Controle de tração - R$ {CONTROLE_TRACAO}"; }
+        public string TextoAssistentePartidaRampa { get => $"Assitente de partida em rampa - R$ {ASSISTENTE_PARTIDA_RAMPA}"; }
+        public string TextoTotal { get => $"Total = R$ {Veiculo.Preco}"; }
         public bool TemFreioABS
         {
             get => temFreioABS;

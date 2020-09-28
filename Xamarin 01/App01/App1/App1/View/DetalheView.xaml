@@ -7,7 +7,7 @@
             <TableView Intent="Settings">
                 <TableRoot>
                     <TableSection Title="Acessórios">
-                    <SwitchCell Text="{Binding TextoFreioABS}" On="True"></SwitchCell>
+                    <SwitchCell Text="{Binding TextoFreioABS}" On="{Binding TemFreioABS}"></SwitchCell>
                     <SwitchCell Text="{Binding TextoControleTracao}" On="False"></SwitchCell>
                     <SwitchCell Text="{Binding TextoAssistentePartidaRampa}" On="False"></SwitchCell>
                     <TextCell Text="{Binding TextoTotal}"></TextCell>
