@@ -9,13 +9,12 @@
                     <TableSection Title="Acessórios">
                         <SwitchCell Text="Freio ABS - R$ 800,00" On="True"></SwitchCell>
                         <SwitchCell Text="Controle de tração - R$ 1.200,00" On="False"></SwitchCell>
-                    <SwitchCell Text="Assitente de partida em rampa - R$ 1.500,00" On="False"></SwitchCell>
-                </TableSection>
+                        <SwitchCell Text="Assitente de partida em rampa - R$ 1.500,00" On="False"></SwitchCell>
+                        <TextCell Text="Total = R$ 6.200,00"></TextCell>
+                    </TableSection>
                 </TableRoot>
             </TableView>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Welcome to Xamarin.Forms!" HorizontalOptions="Center"/>
             <Button Text="Próximo" Clicked="Button_Clicked" VerticalOptions="End">
             </Button>
         </StackLayout>        
