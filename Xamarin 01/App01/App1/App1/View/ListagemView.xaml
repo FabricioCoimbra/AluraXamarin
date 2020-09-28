@@ -1,19 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="App1.MainPage">
+             x:Class="App1.View.ListagemView"
+             Title="Test Drive">
 
     <StackLayout>
         <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
             <StackLayout>
                 <Label Text="Veículos Renault!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-                <Label Text="Test Drive" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
             </StackLayout>
         </Frame>
 
         <Label Text="Selecione o veículo de sua preferência :)" FontSize="Title" Padding="30,10,30,10"/>
-
-        <Label Padding="30,10,30,10">
+        <!-- Padding="30,10,30,10" define respectivamente, Left, top, right, down -->
+        <!-- Padding="30" define todos os lados como 30 -->
+        <!-- Padding="30, 15" define left e right como 30, e top, down como 15 -->
+        <!-- ou seja Padding="30,10" e Padding="30,10,30,10" são a mesma coisa -->
+        <!-- as mesmas regras se aplicam ao margin, proém o margin define a borta externa do elemento e não as borda internas-->
+        <Label Padding="30">
             <Label.FormattedText>
                 <FormattedString>
                     <FormattedString.Spans>
@@ -25,12 +29,13 @@
             </Label.FormattedText>
         </Label>       
 
-        <ListView x:Name="ListaVeiculos" ItemsSource="{Binding Veiculos}" ItemTapped="ListaVeiculos_ItemTapped">
+        <ListView x:Name="ListaVeiculos" ItemsSource="{Binding Veiculos}" 
+                  ItemTapped="ListaVeiculos_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.View>
-                            <StackLayout Orientation="Horizontal" Padding="30,10,30,10" VerticalOptions="Center">
+                            <StackLayout Orientation="Horizontal" Padding="30,10" VerticalOptions="Center">
                                 <Label Text="{Binding Nome}"></Label>
                                 <Label Text="{Binding Preco}" HorizontalOptions="End"></Label>
                             </StackLayout>

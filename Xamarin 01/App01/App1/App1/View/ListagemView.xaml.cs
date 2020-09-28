@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App1.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -6,12 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace App1
+namespace App1.View
 {
-    public partial class MainPage : ContentPage
+    public partial class ListagemView : ContentPage
     {
         public List<Veiculo> Veiculos { get; set; }
-        public MainPage()
+        public ListagemView()
         {
             InitializeComponent();
 
@@ -40,7 +41,9 @@ namespace App1
         private void ListaVeiculos_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var veiculo = (Veiculo)e.Item;
-            DisplayAlert("Veículo selecionado", $"Voçê selecionou o veículo {veiculo.Nome} que custa {veiculo.Preco} ", "Entendi");
+            //DisplayAlert("Veículo selecionado", $"Voçê selecionou o veículo {veiculo.Nome} que custa {veiculo.Preco} ", "Entendi");
+            var detalhe = new DetalheView(veiculo);
+            Navigation.PushAsync(detalhe);
         }
     }
 }
