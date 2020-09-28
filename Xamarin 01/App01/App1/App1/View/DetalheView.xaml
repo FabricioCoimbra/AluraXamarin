@@ -3,13 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App1.View.DetalheView"
              Title="Detalhes do veículo">
-    <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="25">
+            <TableView Intent="Settings">
+                <TableRoot>
+                    <TableSection Title="Acessórios">
+                        <SwitchCell Text="Freio ABS - R$ 800,00" On="True"></SwitchCell>
+                        <SwitchCell Text="Controle de tração - R$ 1.200,00" On="False"></SwitchCell>
+                    <SwitchCell Text="Assitente de partida em rampa - R$ 1.500,00" On="False"></SwitchCell>
+                </TableSection>
+                </TableRoot>
+            </TableView>
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <Button Text="Próximo" Clicked="Button_Clicked" VerticalOptions="End">
             </Button>
         </StackLayout>        
-    </ContentPage.Content>
 </ContentPage>
