@@ -7,10 +7,10 @@
             <TableView Intent="Settings">
                 <TableRoot>
                     <TableSection Title="Acessórios">
-                        <SwitchCell Text="Freio ABS - R$ 800,00" On="True"></SwitchCell>
-                        <SwitchCell Text="Controle de tração - R$ 1.200,00" On="False"></SwitchCell>
-                        <SwitchCell Text="Assitente de partida em rampa - R$ 1.500,00" On="False"></SwitchCell>
-                        <TextCell Text="Total = R$ 6.200,00"></TextCell>
+                    <SwitchCell Text="{Binding TextoFreioABS}" On="True"></SwitchCell>
+                    <SwitchCell Text="{Binding TextoControleTracao}" On="False"></SwitchCell>
+                    <SwitchCell Text="{Binding TextoAssistentePartidaRampa}" On="False"></SwitchCell>
+                    <TextCell Text="{Binding TextoTotal}"></TextCell>
                     </TableSection>
                 </TableRoot>
             </TableView>
