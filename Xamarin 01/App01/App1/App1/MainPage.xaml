@@ -12,7 +12,19 @@
         </Frame>
 
         <Label Text="Selecione o veículo de sua preferência :)" FontSize="Title" Padding="30,10,30,10"/>
-        
+
+        <Label Padding="30,10,30,10">
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Text="Nome" FontAttributes="Bold" FontSize="Caption"></Span>
+                        <Span Text=" - "></Span>
+                        <Span Text="Preço" FontAttributes="Bold" FontSize="Caption"></Span>
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>       
+
         <ListView x:Name="ListaVeiculos" ItemsSource="{Binding Veiculos}">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -20,7 +32,7 @@
                         <ViewCell.View>
                             <StackLayout Orientation="Horizontal" Padding="30,10,30,10">
                                 <Label Text="{Binding Nome}"></Label>
-                                <Label Text="{Binding Preco}"></Label>
+                                <Label Text="{Binding Preco}" HorizontalOptions="End"></Label>
                             </StackLayout>
                             
                         </ViewCell.View>                        
