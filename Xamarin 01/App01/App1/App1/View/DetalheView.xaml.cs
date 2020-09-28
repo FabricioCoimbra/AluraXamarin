@@ -16,7 +16,7 @@ namespace App1.View
         public string TextoFreioABS { get => $"Freio ABS - R$ {FREIO_ABS}"; }
         public string TextoControleTracao { get => $"Controle de tração - R$ {CONTROLE_TRACAO}"; }
         public string TextoAssistentePartidaRampa { get => $"Assitente de partida em rampa - R$ {ASSISTENTE_PARTIDA_RAMPA}"; }
-        public string TextoTotal { get => $"Total = R$ {Veiculo.Preco}"; }
+        public string TextoTotal { get => $"Total = R$ {Veiculo.Preco + (TemFreioABS ? FREIO_ABS : 0)}"; }
         public bool TemFreioABS
         {
             get => temFreioABS;
@@ -27,6 +27,8 @@ namespace App1.View
                     DisplayAlert("Freio ABS", "Ligado", "OK");
                 else
                     DisplayAlert("Freio ABS", "Desligado", "OK");
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(TextoTotal));
             }
         }
         public Veiculo Veiculo { get; set; }

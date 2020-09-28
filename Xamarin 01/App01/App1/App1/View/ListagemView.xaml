@@ -37,7 +37,7 @@
                         <ViewCell.View>
                             <StackLayout Orientation="Horizontal" Padding="30,10" VerticalOptions="Center">
                                 <Label Text="{Binding Nome}"></Label>
-                                <Label Text="{Binding Preco}" HorizontalOptions="End"></Label>
+                                <Label Text="{Binding PrecoFormatado}" HorizontalOptions="End"></Label>
                             </StackLayout>
                             
                         </ViewCell.View>                        
