@@ -8,26 +8,43 @@ namespace App1.ViewModel
     {
         private Veiculo veiculoSelecionado;
         private List<Veiculo> veiculos;
-        public List<Veiculo> Veiculos {
-            get => veiculos; 
-            set 
-            { 
+        private bool aguarde;
+        public ListagemViewModel()
+        {
+            Aguarde = true;
+        }
+        public List<Veiculo> Veiculos
+        {
+            get => veiculos;
+            set
+            {
                 veiculos = value;
                 OnPropertyChanged();
             }
         }
-        public Veiculo VeiculoSelecionado {
+        public Veiculo VeiculoSelecionado
+        {
             get => veiculoSelecionado;
-            set 
-            { 
+            set
+            {
                 veiculoSelecionado = value;
                 if (value != null)
                     MessagingCenter.Send(veiculoSelecionado, "VeiculoSelecionado");
-            } 
+            }
         }
-        public async void CarregarVeiculos() {
+        public async void CarregarVeiculos()
+        {
             var listagem = new ListagemVeiculos();
             Veiculos = await listagem.ListarVeiculosAsync();
+            Aguarde = false;
+        }
+
+        public bool Aguarde { 
+            get => aguarde; 
+            set 
+            { 
+                aguarde = value; OnPropertyChanged(); 
+            } 
         }
     }
 }
