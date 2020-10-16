@@ -1,6 +1,5 @@
 ﻿using App1.Model;
 using App1.ViewModel;
-using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,12 +13,17 @@ namespace App1.View
         {
             InitializeComponent();
             Veiculo = veiculo;
-            BindingContext = new AcessorioViewModel(veiculo);
+            BindingContext = new AcessorioViewModel(veiculo);            
         }
-
-        private void Button_Clicked(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            Navigation.PushAsync(new AgendamentoView(Veiculo));
+            base.OnAppearing();
+            MessagingCenter.Subscribe<Veiculo>(this, "Proximo", (msg) => Navigation.PushAsync(new AgendamentoView(msg)) );
+        }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            MessagingCenter.Unsubscribe<Veiculo>(this, "Proximo");
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using App1.Model;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace App1.ViewModel
 {
@@ -55,6 +57,7 @@ namespace App1.ViewModel
         public AcessorioViewModel(Veiculo veiculo)
         {
             Veiculo = veiculo;
+            ProximoCommand = new Command(() => MessagingCenter.Send(Veiculo, "Proximo"));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -63,5 +66,7 @@ namespace App1.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public ICommand ProximoCommand { get; set; }
     }
 }

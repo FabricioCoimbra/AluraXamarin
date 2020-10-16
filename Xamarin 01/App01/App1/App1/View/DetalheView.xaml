@@ -15,7 +15,7 @@
                 </TableRoot>
             </TableView>
             <Label Text="Welcome to Xamarin.Forms!" HorizontalOptions="Center"/>
-            <Button Text="Próximo" Clicked="Button_Clicked" VerticalOptions="End">
+            <Button Text="Próximo" Command="{Binding ProximoCommand}" VerticalOptions="End">
             </Button>
         </StackLayout>        
 </ContentPage>
