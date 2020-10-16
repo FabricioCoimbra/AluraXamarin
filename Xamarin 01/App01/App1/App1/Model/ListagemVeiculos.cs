@@ -1,22 +1,38 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace App1.Model
 {
     public class ListagemVeiculos
     {
-        public List<Veiculo> ListarVeiculos => new List<Veiculo>
+        private const string GET_URL_VEICULOS = "https://aluracar.herokuapp.com/";
+        private readonly List<Veiculo> Veiculos;
+        public ListagemVeiculos()
+        {
+            Veiculos = new List<Veiculo>();
+        }
+        public async Task<List<Veiculo>> ListarVeiculosAsync()
+        {
+            HttpClient client = new HttpClient();
+            var response = await client.GetStringAsync(GET_URL_VEICULOS);
+            var veiculosJson = JsonConvert.DeserializeObject<VeiculoJson[]>(response);
+            Veiculos.Clear();
+
+            foreach (var veiculo in veiculosJson)
             {
-                new Veiculo{ Nome = "Sandero", Preco = 54290.0},
-                new Veiculo{ Nome = "Kwid", Preco = 37490.0},
-                new Veiculo{ Nome = "Stepway :)", Preco = 70090.0},
-                new Veiculo{ Nome = "Sandero RS", Preco = 59390.0},
-                new Veiculo{ Nome = "Sandero Vibe", Preco = 59390.0},
-                new Veiculo{ Nome = "Sandero GT Line", Preco = 59390.0},
-                new Veiculo{ Nome = "Logan", Preco = 58490.0},
-                new Veiculo{ Nome = "Captur", Preco = 97990.0},
-                new Veiculo{ Nome = "Duster", Preco = 71790.0},
-                new Veiculo{ Nome = "Oroch", Preco = 69590.0},
-                new Veiculo{ Nome = "Master", Preco = 144490.0}
-            };
+                Veiculos.Add(new Veiculo { Nome = veiculo.nome, Preco = veiculo.preco });
+            }
+            return Veiculos;
+        }
     }
+
+    class VeiculoJson
+    {
+        public string nome { get; set; }
+        public int preco { get; set; }
+    }
+
 }
