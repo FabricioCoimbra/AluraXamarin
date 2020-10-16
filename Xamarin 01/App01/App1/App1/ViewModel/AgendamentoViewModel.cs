@@ -26,7 +26,6 @@ namespace App1.ViewModel
             DataAgendamento = DateTime.Now.AddDays(3);
             AgendarCommand = new Command(() => MessagingCenter.Send(this, "Agendar"));
         }
-
         public ICommand AgendarCommand { get; set; }
     }
 }

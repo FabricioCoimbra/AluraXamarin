@@ -28,7 +28,6 @@ namespace App1.Model
             return Veiculos;
         }
     }
-
     class VeiculoJson
     {
         public string nome { get; set; }

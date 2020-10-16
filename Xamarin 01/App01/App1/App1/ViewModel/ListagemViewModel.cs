@@ -1,17 +1,23 @@
 ﻿using App1.Model;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 
 namespace App1.ViewModel
 {
-    public class ListagemViewModel : INotifyPropertyChanged
+    public class ListagemViewModel : BaseViewModel
     {
         private Veiculo veiculoSelecionado;
-        public List<Veiculo> Veiculos { get; set; }
-        public Veiculo VeiculoSelecionado { 
-            get => veiculoSelecionado; 
+        private List<Veiculo> veiculos;
+        public List<Veiculo> Veiculos {
+            get => veiculos; 
+            set 
+            { 
+                veiculos = value;
+                OnPropertyChanged();
+            }
+        }
+        public Veiculo VeiculoSelecionado {
+            get => veiculoSelecionado;
             set 
             { 
                 veiculoSelecionado = value;
@@ -22,14 +28,6 @@ namespace App1.ViewModel
         public async void CarregarVeiculos() {
             var listagem = new ListagemVeiculos();
             Veiculos = await listagem.ListarVeiculosAsync();
-            OnPropertyChanged(nameof(Veiculos));
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

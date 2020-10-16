@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace App1.ViewModel
 {
-    public class AcessorioViewModel : INotifyPropertyChanged
+    public class AcessorioViewModel : BaseViewModel
     {
         public string TextoFreioABS { get => $"Freio ABS - R$ {Veiculo.FREIO_ABS}"; }
         public string TextoControleTracao { get => $"Controle de tração - R$ {Veiculo.CONTROLE_TRACAO}"; }
@@ -59,14 +59,6 @@ namespace App1.ViewModel
             Veiculo = veiculo;
             ProximoCommand = new Command(() => MessagingCenter.Send(Veiculo, "Proximo"));
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName]string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         public ICommand ProximoCommand { get; set; }
     }
 }
