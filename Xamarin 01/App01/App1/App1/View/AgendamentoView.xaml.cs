@@ -19,12 +19,26 @@ namespace App1.View
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            MessagingCenter.Subscribe<AgendamentoViewModel>(this, "Agendar", (msg) => DisplayAlert("Agendamento", msg.AgendamentoFormatado, "OK"));
+            MessagingCenter.Subscribe<AgendamentoViewModel>(this, "Agendar", async (msg) => {
+                var confirma = await DisplayAlert("Salvar agendamento", "Deseja confirmar o agendamento?", "Sim", "Não");
+                if (confirma)
+                    await msg.SalvarAgendamentoAsync();
+            });
+
+            MessagingCenter.Subscribe<AgendamentoViewModel>(this, "SucessoAgendamento", async (msg) => {
+                    await DisplayAlert("Agendamento gravado com sucesso", msg.AgendamentoFormatado, "OK");
+            });
+
+            MessagingCenter.Subscribe<ArgumentException>(this, "ErroAgendamento", async (msg) => {
+                await DisplayAlert("Erro ao gravar o agendamento", msg.Message, "OK");
+            });
         }
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
             MessagingCenter.Unsubscribe<AgendamentoViewModel>(this, "Agendar");
+            MessagingCenter.Unsubscribe<AgendamentoViewModel>(this, "SucessoAgendamento");
+            MessagingCenter.Unsubscribe<ArgumentException>(this, "ErroAgendamento");
         }
     }
 }
