@@ -10,18 +10,21 @@ namespace App1.View
     public partial class AgendamentoView : ContentPage
     {
         private AgendamentoViewModel AgendamentoViewModel { get; set; }
-        //public Veiculo Veiculo { get; set; }
         public AgendamentoView(Veiculo veiculo)
         {
             InitializeComponent();
-            //Veiculo = veiculo;
             AgendamentoViewModel = new AgendamentoViewModel(veiculo);
             BindingContext = AgendamentoViewModel;
         }
-
-        private void Button_Clicked(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            DisplayAlert("Agendamento", AgendamentoViewModel.AgendamentoFormatado, "OK");
+            base.OnAppearing();
+            MessagingCenter.Subscribe<AgendamentoViewModel>(this, "Agendar", (msg) => DisplayAlert("Agendamento", msg.AgendamentoFormatado, "OK"));
+        }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            MessagingCenter.Unsubscribe<AgendamentoViewModel>(this, "Agendar");
         }
     }
 }

@@ -31,7 +31,7 @@
             <Label Text="Sou a página de agendamento"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Button Text="Agendar" Margin="25" Clicked="Button_Clicked"></Button>
+            <Button Text="Agendar" Margin="25" Command="{Binding AgendarCommand}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
