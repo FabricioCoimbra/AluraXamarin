@@ -27,10 +27,10 @@
                     </FormattedString.Spans>
                 </FormattedString>
             </Label.FormattedText>
-        </Label>       
-
-        <ListView x:Name="ListaVeiculos" ItemsSource="{Binding Veiculos}" 
-                  ItemTapped="ListaVeiculos_ItemTapped">
+        </Label>
+        <!--ItemTapped="ListaVeiculos_ItemTapped"-->
+        <ListView x:Name="ListaVeiculos" ItemsSource="{Binding Veiculos}"                   
+                  SelectedItem="{Binding VeiculoSelecionado}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

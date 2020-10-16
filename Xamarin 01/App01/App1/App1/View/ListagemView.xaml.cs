@@ -1,30 +1,26 @@
 ﻿using App1.Model;
-using System.Collections.Generic;
+using App1.ViewModel;
 using Xamarin.Forms;
 
 namespace App1.View
 {
     public partial class ListagemView : ContentPage
     {
-        public List<Veiculo> Veiculos { get; set; }
         public ListagemView()
         {
             InitializeComponent();
 
-            Veiculos = new ListagemVeiculos().ListarVeiculos;
-
-            //definido pelo XAML em ItemsSource="{Binding Veiculos}"
-            //ListaVeiculos.ItemsSource = Veiculos;
-
-            //Poderia ser definida outra classe para contexto de binding desacoplando, ou complicando um pouco mais as coisas ...
-            BindingContext = this;
+            BindingContext = new ListagemViewModel();
         }
-
-        private void ListaVeiculos_ItemTapped(object sender, ItemTappedEventArgs e)
+        protected override void OnAppearing()
         {
-            var veiculo = (Veiculo)e.Item;            
-            var detalhe = new DetalheView(veiculo);
-            Navigation.PushAsync(detalhe);
+            base.OnAppearing();
+            MessagingCenter.Subscribe<Veiculo>(this, "VeiculoSelecionado", (msg) => Navigation.PushAsync(new DetalheView(msg)));
+        }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            MessagingCenter.Unsubscribe<Veiculo>(this, "VeiculoSelecionado");
         }
     }
 }
