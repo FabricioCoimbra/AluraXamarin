@@ -13,10 +13,5 @@ namespace App1.View
             InitializeComponent();
             LogoXamarin.Source = ImageSource.FromResource("App1.img.xamarin.jpg", typeof(LoginView).GetTypeInfo().Assembly);
         }
-
-        private void Button_Clicked(object sender, System.EventArgs e)
-        {
-            MessagingCenter.Send<Usuario>(new Usuario(), "LoginSucesso");
-        }
     }
 }
