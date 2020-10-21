@@ -43,7 +43,8 @@ namespace App1.ViewModel
             get => aguarde; 
             set 
             { 
-                aguarde = value; OnPropertyChanged(); 
+                aguarde = value; 
+                OnPropertyChanged(); 
             } 
         }
     }

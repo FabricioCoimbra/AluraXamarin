@@ -1,5 +1,4 @@
-﻿using App1.Model;
-using System.Reflection;
+﻿using System.Reflection;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

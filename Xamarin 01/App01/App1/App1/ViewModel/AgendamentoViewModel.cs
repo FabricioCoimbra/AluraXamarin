@@ -60,12 +60,15 @@ namespace App1.ViewModel
         {
             Veiculo = veiculo;
             DataAgendamento = DateTime.Now.AddDays(3);
-            AgendarCommand = new Command(() => MessagingCenter.Send(this, "Agendar"), () =>
-            {
-                return !string.IsNullOrEmpty(Nome)
-                && !string.IsNullOrEmpty(Email)
-                && !string.IsNullOrEmpty(Telefone);
-            });
+            AgendarCommand = new Command(
+                () => MessagingCenter.Send(this, "Agendar"),
+                () =>
+                {
+                    return !string.IsNullOrEmpty(Nome)
+                        && !string.IsNullOrEmpty(Email)
+                        && !string.IsNullOrEmpty(Telefone);
+                }
+            );
         }
         public ICommand AgendarCommand { get; set; }
 
@@ -85,8 +88,7 @@ namespace App1.ViewModel
                 preco = Veiculo.Preco,
                 dataAgendamento = dataHoraAgendamento
             }
-
-                ); ; ; ;
+            );
 
             var conteudo = new StringContent(json, Encoding.UTF8, "application/json");
             var resposta = await client.PostAsync(URL_POST_AGENDATMENTO, conteudo);
