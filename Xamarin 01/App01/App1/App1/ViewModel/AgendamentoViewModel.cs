@@ -11,7 +11,7 @@ namespace App1.ViewModel
 {
     public class AgendamentoViewModel : BaseViewModel
     {
-        private const string URL_POST_AGENDATMENTO = "http://aluracar.herokuapp.com/salvaragendamento";
+        private const string URL_POST_AGENDATMENTO = "https://aluracar.herokuapp.com/salvaragendamento";
         private string nome;
         private string email;
         private string telefone;

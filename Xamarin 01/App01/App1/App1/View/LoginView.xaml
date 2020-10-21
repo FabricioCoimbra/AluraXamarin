@@ -10,7 +10,7 @@
                 <Image x:Name="LogoAluraCar" Source="{local:ImageResourceExtension App1.img.aluracar.png}" ></Image>
                 <Entry Placeholder="Usuário"></Entry>
                 <Entry Placeholder="Senha" IsPassword="True"></Entry>
-                <Button Text="Entrar"></Button>
+                <Button Text="Entrar" Clicked="Button_Clicked"></Button>
                 <Image x:Name="LogoXamarin" ></Image>
             </StackLayout>
         </ScrollView>
