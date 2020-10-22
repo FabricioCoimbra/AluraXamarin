@@ -1,5 +1,7 @@
 ﻿using App1.Erro;
 using App1.Model;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -33,7 +35,11 @@ namespace App1.Service
                 }
                 
                 if (response.IsSuccessStatusCode)
-                    MessagingCenter.Send(new Usuario(), "LoginSucesso");
+                {
+                    var jsonSerializerSettings = new JsonSerializerSettings { ContractResolver = new DefaultContractResolver() };
+                    Usuario usuario = JsonConvert.DeserializeObject<UsuarioJson>(await response.Content.ReadAsStringAsync(), jsonSerializerSettings).Usuario;
+                    MessagingCenter.Send(usuario, "LoginSucesso");
+                }                    
                 else
                     MessagingCenter.Send(new LoginException("Erro ao autenticar o usuário \n" + await response.Content.ReadAsStringAsync()), "FalhaLogin");
             }

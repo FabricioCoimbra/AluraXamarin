@@ -4,9 +4,7 @@
              xmlns:view="clr-namespace:App1.View"
              x:Class="App1.View.MasterDetailView">
     <MasterDetailPage.Master>
-        <ContentPage Title="Página master">
-            <Label Text="Olá, eu sou a página master"></Label>
-        </ContentPage>
+        <view:MasterView></view:MasterView>
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
         <NavigationPage>
