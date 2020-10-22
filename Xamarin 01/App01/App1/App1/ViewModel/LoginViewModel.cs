@@ -76,6 +76,11 @@ namespace App1.ViewModel
             {
                 return !string.IsNullOrEmpty(Usuario) && !string.IsNullOrEmpty(Senha);
             });
+
+#if (DEBUG)
+            Usuario = "joao@alura.com.br";
+            Senha = "alura123";
+#endif
         }
     }
 }

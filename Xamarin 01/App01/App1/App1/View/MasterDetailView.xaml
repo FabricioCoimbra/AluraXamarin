@@ -9,8 +9,11 @@
         </ContentPage>
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
-        <view:ListagemView>
-            
-        </view:ListagemView>
+        <NavigationPage>
+            <!--Criando uma NavigationPage, passando para o seu construtor uma nova ListagemView-->
+            <x:Arguments>
+                <view:ListagemView></view:ListagemView>
+            </x:Arguments>
+        </NavigationPage>
     </MasterDetailPage.Detail>
 </MasterDetailPage>
