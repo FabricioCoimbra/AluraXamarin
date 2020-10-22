@@ -8,18 +8,16 @@
         <vm:LoginViewModel>           
         </vm:LoginViewModel>
     </ContentPage.BindingContext>
-    <ContentPage.Content>        
-        <ScrollView>
-            <StackLayout VerticalOptions="Center" Margin="20">
-                <Image Source="https://img2.gratispng.com/20180527/ajl/kisspng-renaultnissanmitsubishi-alliance-car-mitsubi-5b0acd43209f58.9764373715274345631336.jpg" />
-                <Image x:Name="LogoAluraCar" Source="{local:ImageResourceExtension App1.img.aluracar.png}" ></Image>
-                <Entry Placeholder="Usuário" Text="{Binding Usuario}"></Entry>
-                <Entry Placeholder="Senha" IsPassword="True" Text="{Binding Senha}"></Entry>
-                <Button Text="Entrar" Command="{Binding EntrarComand}"></Button>
-                <ActivityIndicator IsRunning="{Binding Aguarde}" IsVisible="{Binding Aguarde}"></ActivityIndicator>
-                <Label Text="{Binding MsgErroLogin}" TextColor="Red"></Label>
-                <Image x:Name="LogoXamarin" ></Image>
-            </StackLayout>
-        </ScrollView>
-    </ContentPage.Content>
+    <ScrollView>
+        <StackLayout VerticalOptions="Center" Margin="20">
+            <Image Source="https://img2.gratispng.com/20180527/ajl/kisspng-renaultnissanmitsubishi-alliance-car-mitsubi-5b0acd43209f58.9764373715274345631336.jpg" />
+            <Image x:Name="LogoAluraCar" Source="{local:ImageResourceExtension App1.img.aluracar.png}" ></Image>
+            <Entry Placeholder="Usuário" Text="{Binding Usuario}"></Entry>
+            <Entry Placeholder="Senha" IsPassword="True" Text="{Binding Senha}"></Entry>
+            <Button Text="Entrar" Command="{Binding EntrarComand}"></Button>
+            <ActivityIndicator IsRunning="{Binding Aguarde}" IsVisible="{Binding Aguarde}"></ActivityIndicator>
+            <Label Text="{Binding MsgErroLogin}" TextColor="Red" IsVisible="{Binding TemErro}"></Label>            
+            <Image x:Name="LogoXamarin"></Image>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

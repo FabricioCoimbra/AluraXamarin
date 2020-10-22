@@ -1,4 +1,5 @@
 ﻿using App1.Model;
+using App1.Service;
 using System.Collections.Generic;
 using Xamarin.Forms;
 
@@ -34,7 +35,7 @@ namespace App1.ViewModel
         }
         public async void CarregarVeiculos()
         {
-            var listagem = new ListagemVeiculos();
+            var listagem = new ListagemVeiculosService();
             Veiculos = await listagem.ListarVeiculosAsync();
             Aguarde = false;
         }

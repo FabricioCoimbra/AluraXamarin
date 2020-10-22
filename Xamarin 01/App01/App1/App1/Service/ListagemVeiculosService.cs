@@ -1,23 +1,20 @@
-﻿using Newtonsoft.Json;
+﻿using App1.Model;
+using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace App1.Model
+namespace App1.Service
 {
-    public class ListagemVeiculos
+    public class ListagemVeiculosService : BaseService
     {
-        private const string GET_URL_VEICULOS = "https://aluracar.herokuapp.com/";
         private readonly List<Veiculo> Veiculos;
-        public ListagemVeiculos()
+        public ListagemVeiculosService()
         {
             Veiculos = new List<Veiculo>();
         }
         public async Task<List<Veiculo>> ListarVeiculosAsync()
         {
-            HttpClient client = new HttpClient();
-            var response = await client.GetStringAsync(GET_URL_VEICULOS);
+            var response = await Client.GetStringAsync(BASE_ADDRESS);
             var veiculosJson = JsonConvert.DeserializeObject<VeiculoJson[]>(response);
             Veiculos.Clear();
 

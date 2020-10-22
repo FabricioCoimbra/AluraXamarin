@@ -20,13 +20,13 @@ namespace App1
                 MainPage = new NavigationPage(new ListagemView());
             });
         }
-
         protected override void OnSleep()
         {
         }
 
         protected override void OnResume()
         {
+
         }
     }
 }

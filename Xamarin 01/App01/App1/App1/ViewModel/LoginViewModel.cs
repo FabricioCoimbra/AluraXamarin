@@ -1,7 +1,5 @@
 ﻿using App1.Model;
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
+using App1.Service;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -39,8 +37,14 @@ namespace App1.ViewModel
             {
                 msgErroLogin = value;
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(TemErro));
             }
         }
+        public bool TemErro
+        {
+            get { return !string.IsNullOrEmpty(msgErroLogin); }
+        }
+
         private bool aguarde;
         public bool Aguarde
         {
@@ -51,31 +55,22 @@ namespace App1.ViewModel
                 OnPropertyChanged();
             }
         }
-
         public ICommand EntrarComand { get; private set; }
         public LoginViewModel()
         {
-            msgErroLogin = string.Empty;
+            MsgErroLogin = string.Empty;
             Aguarde = false;
             EntrarComand = new Command(async () =>
             {
                 Aguarde = true;
-                using (var client = new HttpClient())
+                try
                 {
-                    var campos = new FormUrlEncodedContent(new[]
-                            {
-                                new KeyValuePair<string, string>("email", Usuario),
-                                new KeyValuePair<string, string>("senha", Senha)
-                            }
-                        );
-                    client.BaseAddress = new Uri("https://aluracar.herokuapp.com");
-                    var response = await client.PostAsync("/login", campos);
-                    if (response.IsSuccessStatusCode)
-                        MessagingCenter.Send<Usuario>(new Usuario(), "LoginSucesso");
-                    else
-                        MsgErroLogin = await response.Content.ReadAsStringAsync();
+                    await new LoginService().FazerLogin(new Login(Usuario, Senha));
                 }
-                Aguarde = false;
+                finally
+                {
+                    Aguarde = false;
+                }
             },
             () =>
             {
