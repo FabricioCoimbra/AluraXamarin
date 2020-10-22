@@ -1,5 +1,6 @@
 ﻿using App1.Erro;
 using App1.Model;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -18,17 +19,28 @@ namespace App1.Service
                             new KeyValuePair<string, string>("email", login.Email),
                             new KeyValuePair<string, string>("senha", login.Senha)
                         }
-                        );
-                var response = await Client.PostAsync("/login", campos);
+                 );
+                HttpResponseMessage response = null;
+                try
+                {
+                    response = await Client.PostAsync("/login", campos);
+                }
+                catch
+                {
+                    MessagingCenter.Send(
+                        new LoginException("Ocorreu um erro de comunicação com o servidor \n" + "Por favor, Verifique sua conexão e tente mais tarde!"),
+                        "FalhaLogin");
+                }
+                
                 if (response.IsSuccessStatusCode)
                     MessagingCenter.Send(new Usuario(), "LoginSucesso");
                 else
                     MessagingCenter.Send(new LoginException("Erro ao autenticar o usuário \n" + await response.Content.ReadAsStringAsync()), "FalhaLogin");
             }
-            catch 
+            catch (Exception e)
             {
                 MessagingCenter.Send(
-                    new LoginException("Ocorreu um erro de comunicação com o servidor \n" + "Por favor, Verifique sua conexão e tente mais tarde!"),
+                    new LoginException("Ocorreu um erro interno \n" + e.Message + "\n Tente mais tarde!"),
                     "FalhaLogin");
             }
         }

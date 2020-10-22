@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view="clr-namespace:App1.View"
+             x:Class="App1.View.MasterDetailView">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Página master">
+            <Label Text="Olá, eu sou a página master"></Label>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <view:ListagemView>
+            
+        </view:ListagemView>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>
