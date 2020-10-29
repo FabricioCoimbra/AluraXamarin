@@ -17,8 +17,7 @@ namespace App1
         {
             MessagingCenter.Subscribe<Usuario>(this, "LoginSucesso", (usuario) =>
             {
-                //MainPage = new NavigationPage(new ListagemView());
-                MainPage = new MasterDetailView();
+                MainPage = new MasterDetailView(usuario);
             });
         }
         protected override void OnSleep()
