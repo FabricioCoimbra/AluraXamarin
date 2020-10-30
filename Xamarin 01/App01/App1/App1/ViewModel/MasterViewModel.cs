@@ -1,4 +1,6 @@
 ﻿using App1.Model;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace App1.ViewModel
 {
@@ -41,7 +43,12 @@ namespace App1.ViewModel
         public MasterViewModel(Usuario usuario)
         {
             Usuario = usuario;
+            EditarPerfilCOmmand = new Command(() => {
+                MessagingCenter.Send<Usuario>(Usuario, "EditarPerfil");
+            });
         }
+
+        public ICommand EditarPerfilCOmmand { get; private set; }
 
     }
 }

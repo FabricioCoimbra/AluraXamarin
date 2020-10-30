@@ -6,12 +6,27 @@ using Xamarin.Forms.Xaml;
 namespace App1.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MasterView : ContentPage
+    public partial class MasterView : TabbedPage
     {
         public MasterView(Usuario usuario)
         {
             InitializeComponent();
             BindingContext = new MasterViewModel(usuario);
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            MessagingCenter.Subscribe<Usuario>(this, "EditarPerfil",
+                (usuario) =>
+                {
+                    CurrentPage = Children[1];
+                });
+        }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            MessagingCenter.Unsubscribe<Usuario>(this, "EditarPerfil");
         }
     }
 }
