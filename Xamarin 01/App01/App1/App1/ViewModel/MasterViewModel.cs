@@ -6,6 +6,8 @@ namespace App1.ViewModel
 {
     public class MasterViewModel : BaseViewModel
     {
+        private bool editando = false;
+
         public string Nome
         {
             get => Usuario.Nome; set
@@ -39,16 +41,40 @@ namespace App1.ViewModel
             }
         }
 
+        public bool Editando
+        {
+            get => editando; set
+            {
+                editando = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         public Usuario Usuario { get; set; }
         public MasterViewModel(Usuario usuario)
         {
             Usuario = usuario;
-            EditarPerfilCOmmand = new Command(() => {
+            EditarPerfilCommand = new Command(() =>
+            {
                 MessagingCenter.Send<Usuario>(Usuario, "EditarPerfil");
+            });
+
+            SalvarCommand = new Command(() =>
+            {
+                Editando = false;
+                MessagingCenter.Send<Usuario>(Usuario, "SalvarPerfil");
+            });
+
+            EditarCommand = new Command(() =>
+            {
+                Editando = true;
             });
         }
 
-        public ICommand EditarPerfilCOmmand { get; private set; }
+        public ICommand EditarPerfilCommand { get; private set; }
+        public ICommand SalvarCommand { get; private set; }
+        public ICommand EditarCommand { get; private set; }
 
     }
 }

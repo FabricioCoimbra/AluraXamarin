@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:converter="clr-namespace:App1.Converter"
              x:Class="App1.View.MasterView"
              Title="Perfil">
+    <TabbedPage.Resources>
+        <ResourceDictionary>
+            <converter:NegativeConverter x:Key="IverterBool"/>
+        </ResourceDictionary>
+    </TabbedPage.Resources>
     <TabbedPage.Children>
         <ContentPage Title="Usuário">
             <Frame BorderColor="Silver" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
@@ -15,12 +21,29 @@
                     <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="Fill"/>
                     <Label Text="{Binding Email}"/>
                     <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="Fill"/>
-                    <Button Text="Perfil" Command="{Binding EditarPerfilCOmmand}"/>
+                    <Button Text="Perfil" Command="{Binding EditarPerfilCommand}"/>
                 </StackLayout>
             </Frame>
         </ContentPage>
         <ContentPage Title="Editar">
-            
+            <Frame BorderColor="Silver" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <TableView>
+                        <TableRoot>
+                            <TableSection Title="Dados do perfil">
+                                <EntryCell Placeholder="Nome" Label="Nome" Text="{Binding Nome}" IsEnabled="{Binding Editando}"/>
+                                <EntryCell Placeholder="Telefone" Label="Telefone" Text="{Binding Telefone}" IsEnabled="{Binding Editando}"/>
+                                <EntryCell Placeholder="Email" Label="Email" Text="{Binding Email}" IsEnabled="{Binding Editando}"/>
+                            </TableSection>
+                            <TableSection Title="Data meio dificil de usar">
+                                <EntryCell Placeholder="Data Nascimento" Label="Data Nascimento" Text="{Binding DataNascimento}" IsEnabled="{Binding Editando}"/>
+                            </TableSection>
+                        </TableRoot>
+                    </TableView>
+                    <Button Text="Editar" Command="{Binding EditarCommand}" IsVisible="{Binding Editando, Converter={StaticResource Key=IverterBool}}"/>
+                    <Button Text="Salvar" Command="{Binding SalvarCommand}" IsVisible="{Binding Editando}"/>
+                </StackLayout>
+            </Frame>
         </ContentPage>        
     </TabbedPage.Children>    
 </TabbedPage>

@@ -22,11 +22,17 @@ namespace App1.View
                 {
                     CurrentPage = Children[1];
                 });
+            MessagingCenter.Subscribe<Usuario>(this, "SalvarPerfil",
+                (usuario) =>
+                {
+                    CurrentPage = Children[0];
+                });
         }
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
             MessagingCenter.Unsubscribe<Usuario>(this, "EditarPerfil");
+            MessagingCenter.Unsubscribe<Usuario>(this, "SalvarPerfil");
         }
     }
 }
