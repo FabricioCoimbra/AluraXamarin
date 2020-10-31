@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:converter="clr-namespace:App1.Converter"
-             x:Class="App1.View.MasterView"
+            xmlns:converter="clr-namespace:App1.Converter" xmlns:local="clr-namespace:App1"
+            x:Class="App1.View.MasterView"
              Title="Perfil">
     <TabbedPage.Resources>
         <ResourceDictionary>
@@ -10,9 +10,10 @@
         </ResourceDictionary>
     </TabbedPage.Resources>
     <TabbedPage.Children>
-        <ContentPage Title="Usuário">
-            <Frame BorderColor="Silver" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <ContentPage Title="Usuário" >
+            <Frame HorizontalOptions="Fill" OutlineColor="Silver" VerticalOptions="Fill" Margin="15">                
+                <StackLayout >
+                    <Image x:Name="ImgPerfil" Source="{Binding FotoPerfil}" />
                     <Label Text="{Binding Nome}"/>
                     <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="Fill"/>
                     <Label Text="{Binding DataNascimento}"/>
@@ -28,9 +29,11 @@
         <ContentPage Title="Editar">
             <Frame BorderColor="Silver" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                 <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image x:Name="ImgPerfilEditar" Source="{local:ImageResourceExtension App1.img.perfil.png}" />
+                    <Button Text="Tirar Foto" Command="{Binding TirarFotoCommand}"/>
                     <TableView>
                         <TableRoot>
-                            <TableSection Title="Dados do perfil">
+                            <TableSection Title="Dados do perfil">                                
                                 <EntryCell Placeholder="Nome" Label="Nome" Text="{Binding Nome}" IsEnabled="{Binding Editando}"/>
                                 <EntryCell Placeholder="Telefone" Label="Telefone" Text="{Binding Telefone}" IsEnabled="{Binding Editando}"/>
                                 <EntryCell Placeholder="Email" Label="Email" Text="{Binding Email}" IsEnabled="{Binding Editando}"/>

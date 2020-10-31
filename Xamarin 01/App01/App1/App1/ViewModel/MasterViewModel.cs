@@ -1,4 +1,5 @@
 ﻿using App1.Model;
+using System.Reflection;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -50,11 +51,27 @@ namespace App1.ViewModel
             }
         }
 
+        private ImageSource fotoPerfil = ImageSource.FromResource("App1.img.perfil.png", typeof(MasterViewModel).GetTypeInfo().Assembly);
+
+        public ImageSource FotoPerfil
+        {
+            get => fotoPerfil;
+            private set
+            {
+                fotoPerfil = value;
+                OnPropertyChanged();
+            }
+        }
 
         public Usuario Usuario { get; set; }
         public MasterViewModel(Usuario usuario)
         {
             Usuario = usuario;
+            CriarCommands();
+        }
+
+        private void CriarCommands()
+        {
             EditarPerfilCommand = new Command(() =>
             {
                 MessagingCenter.Send<Usuario>(Usuario, "EditarPerfil");
@@ -70,11 +87,17 @@ namespace App1.ViewModel
             {
                 Editando = true;
             });
+
+            TirarFotoCommand = new Command(() =>
+            {
+                DependencyService.Get<App1.Media.ICamera>().TirarFoto();
+            });
         }
 
         public ICommand EditarPerfilCommand { get; private set; }
         public ICommand SalvarCommand { get; private set; }
         public ICommand EditarCommand { get; private set; }
+        public ICommand TirarFotoCommand { get; private set; }
 
     }
 }

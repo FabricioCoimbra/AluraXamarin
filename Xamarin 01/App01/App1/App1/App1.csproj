@@ -12,11 +12,13 @@
 
   <ItemGroup>
     <None Remove="img\aluracar.png" />
+    <None Remove="img\perfil.png" />
     <None Remove="img\xamarin.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="img\aluracar.png" />
+    <EmbeddedResource Include="img\perfil.png" />
     <EmbeddedResource Include="img\xamarin.jpg" />
   </ItemGroup>
 
