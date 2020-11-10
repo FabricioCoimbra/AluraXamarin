@@ -4,6 +4,9 @@ using Android.Runtime;
 using Android.OS;
 using App1.Media;
 using App1.Droid;
+using Android.Content;
+using Android.Provider;
+using Xamarin.Forms;
 
 [assembly: Xamarin.Forms.Dependency(typeof(MainActivity))]
 namespace App1.Droid
@@ -13,6 +16,9 @@ namespace App1.Droid
     {
         public void TirarFoto()
         {
+            var intent = new Intent(MediaStore.ActionImageCapture);           
+            var activity = Forms.Context as Activity;
+            activity.StartActivityForResult(intent, 0);
 
         }
         protected override void OnCreate(Bundle savedInstanceState)
